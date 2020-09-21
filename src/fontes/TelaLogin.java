@@ -31,6 +31,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Frame;
+import java.awt.Toolkit;
 
 public class TelaLogin extends JFrame {
 
@@ -136,7 +138,7 @@ public class TelaLogin extends JFrame {
 					txtPassword.setEchoChar((char)'●');
 			}
 		});
-		txtPassword.setEchoChar((char)'●');
+		txtPassword.setEchoChar((char)0);
 		txtPassword.setMargin(new Insets(5, 5, 5, 5));
 		txtPassword.setText("Password");
 		txtPassword.setBounds(10, 11, 190, 30);
@@ -149,11 +151,12 @@ public class TelaLogin extends JFrame {
 		panel_1.add(lblIconPassword);
 		
 		JButton btnEntrar = new JButton("ENTRAR");
+		btnEntrar.setContentAreaFilled(false);
 		btnEntrar.addMouseListener(new MouseAdapter() {
 			
 			public void mouseClicked(MouseEvent arg0) {
 				if(txtUsername.getText().equals("admin") && txtPassword.getText().equals("admin123")) {
-					lblLoginMessage.setText("");					
+					//lblLoginMessage.setText("");					
 					btnEntrar.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							T_dois exibir = new T_dois();
@@ -174,7 +177,6 @@ public class TelaLogin extends JFrame {
 		btnEntrar.setFont(new Font("Rockwell", Font.BOLD, 14));
 		btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEntrar.setBorder(new LineBorder(new Color(152, 251, 152), 2, true));
-		btnEntrar.setContentAreaFilled(false);
 		btnEntrar.setBounds(150, 282, 100, 30);
 		contentPane.add(btnEntrar);
 		
@@ -197,5 +199,14 @@ public class TelaLogin extends JFrame {
 		lblLoginMessage.setFont(new Font("Rockwell", Font.PLAIN, 12));
 		lblLoginMessage.setBounds(125, 241, 300, 14);
 		contentPane.add(lblLoginMessage);
+		
+		JLabel lblEnter = new JLabel("ENTER");
+		lblEnter.setFont(new Font("Rockwell", Font.BOLD, 14));
+		lblEnter.setBorder(new LineBorder(new Color(152, 251, 152), 2));
+		lblEnter.setBackground(new Color(204, 255, 204));
+		lblEnter.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEnter.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblEnter.setBounds(0, 0, 100, 30);
+		
 	}
 }
